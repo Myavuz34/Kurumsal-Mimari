@@ -10,29 +10,36 @@ namespace Northwind.DAL.Concrete.EntityFramework
 {
     public class EFProductDal : IProductDal
     {
+        private NorthwindContext _context = new NorthwindContext();
         public void Add(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
         }
 
         public void Delete(int productId)
         {
-            throw new NotImplementedException();
+            _context.Products.Remove(_context.Products.FirstOrDefault(p => p.ProductID == productId));
+            _context.SaveChanges();
         }
 
         public Product Get(int productId)
         {
-            throw new NotImplementedException();
+            return _context.Products.FirstOrDefault(x => x.ProductID == productId);
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Products.ToList();
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            Product productToUpdate = _context.Products.FirstOrDefault(x => x.ProductID == product.ProductID);
+            productToUpdate.ProductName = product.ProductName;
+            productToUpdate.CategoryID = product.CategoryID;
+            productToUpdate.UnitPrice = product.UnitPrice;
+            productToUpdate.UnitsInStock = product.UnitsInStock;
+            _context.SaveChanges();
         }
     }
 }
