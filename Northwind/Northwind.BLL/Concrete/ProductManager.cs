@@ -11,7 +11,7 @@ namespace Northwind.BLL.Concrete
 {
     public class ProductManager : IProductService
     {
-        private IProductDal _productDal;
+        private readonly IProductDal _productDal;
 
         public ProductManager(IProductDal productDal)
         {

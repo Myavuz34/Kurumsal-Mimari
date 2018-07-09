@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Northwind.DAL.Concrete.EntityFramework
 {
-    public class EFProductDal : IProductDal
+    public class EfProductDal : IProductDal
     {
-        private NorthwindContext _context = new NorthwindContext();
+        private readonly NorthwindContext _context = new NorthwindContext();
         public void Add(Product product)
         {
             _context.Products.Add(product);
