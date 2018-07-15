@@ -14,6 +14,8 @@ namespace Northwind.WcgLibrary.Concrete
     {
         //Instance Provider ile ezilecek
         private ProductManager _productManager=new ProductManager(new EfProductDal());
+
+
         public List<Product> GetAll()
         {
             return _productManager.GetAll();

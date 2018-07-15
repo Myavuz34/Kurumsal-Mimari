@@ -38,7 +38,6 @@ namespace Northwind.DAL.Concrete.EntityFramework
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryID = product.CategoryID;
             productToUpdate.UnitPrice = product.UnitPrice;
-            productToUpdate.UnitsInStock = product.UnitsInStock;
             _context.SaveChanges();
         }
     }
